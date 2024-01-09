@@ -1,4 +1,4 @@
-export let students = ["Abhijeet","Ayushraj","Divin","Edmund","Esra","Rui","Hannah","John","Joshua","Kadri","Maria","Maxwell","Rais","Roney","Samuel","Solonas","Stewart","Thomas"];
+export let developers = ["Abhijeet","Ayushraj","Divin","Edmund","Esra","Rui","Hannah","John","Joshua","Kadri","Maria","Maxwell","Rais","Roney","Samuel","Solonas","Stewart","Thomas"];
 
 export function shuffleArray(originalArray) {
     let array = [...originalArray];
@@ -9,7 +9,7 @@ export function shuffleArray(originalArray) {
     return array;
 }
 
-export function getStudents() {
-    return shuffleArray(students);
+export function getDevelopers() {
+    return shuffleArray(developers);
 }
 

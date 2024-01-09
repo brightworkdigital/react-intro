@@ -1,11 +1,14 @@
-// eslint-disable-next-line no-unused-vars
+import DeveloperItem from "./components/DeveloperItem";
+import { getDevelopers } from "./utils";
+
+let developers = getDevelopers();
 
 function App() {
   return (
       <div >
         <h1 >Class Roster</h1>
         <ul>
-          <li>Abhijeet</li>
+          {developers.map((developer) => { return <DeveloperItem name={developer}></DeveloperItem> })}
         </ul>
       </div>
   );
