@@ -10,6 +10,7 @@ export function shuffleArray(originalArray) {
 }
 
 export function getDevelopers() {
-    return shuffleArray(developers);
+    // return shuffleArray(developers);
+    return developers;
 }
 
