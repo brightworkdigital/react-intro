@@ -1,4 +1,4 @@
- 
+ import "./RosterItem.css";
 
 const RosterItem = (props) => {
     return (
