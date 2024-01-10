@@ -1,28 +1,48 @@
-import { useState } from "react";
-import DeveloperItem from "./components/DeveloperItem";
+import { useEffect, useState } from "react";
+import RosterItem from "./components/RosterItem";
 import RosterCount from "./components/RosterCount";
-import { getDevelopers } from "./utils";
+import { getDevelopers as getRoster } from "./utils";
+
+const STUDENT_ROSTER = "Student Roster";
+const DEVELOPER_ROSTER = "Developer Roster";
 
 function App() {
-  const [stateDevelopers, setStateDevelopers] = useState(getDevelopers());
+  const [roster, setRoster] = useState(getRoster());
+  const [pageTitle, setPageTitle]= useState(STUDENT_ROSTER);
 
-  // console.log("developers", stateDevelopers);
+  useEffect( () => {
+    console.log("roster:", roster);
+  },
+  [roster]
+  );
 
-  const addDeveloperClickHandler = (event) => {
+   //TODO: log page title which is only written when title change
+
+  const addRosterItemClickHandler = (event) => {
     // setStateDevelopers([...stateDevelopers, "dave"]);  // this can be blown up by a race condition
     // the code below is the pattern to use when you're setting a state variable based on the previous value of that variable
-    setStateDevelopers((prevStateDevelopers) => { return [...prevStateDevelopers, "dave"] });
+    setRoster((prevRoster) => { return [...prevRoster, "Dave"] });
     console.log("clicked");
+    // console.log("roster:", roster);  //DOESN'T WORK
+  }
+
+  const togglePageTitleClickHandler = (event) => {
+    if(pageTitle === STUDENT_ROSTER)
+      setPageTitle(DEVELOPER_ROSTER);
+    else
+      setPageTitle(STUDENT_ROSTER);
   }
 
   return (
     <div >
-      <h1 >Class Roster</h1>
-      <button onClick={addDeveloperClickHandler}>Add Developer</button>
+      <h1 >{pageTitle}</h1>
+      <div><button onClick={togglePageTitleClickHandler}>Toggle Page Title</button></div>
+      <button onClick={addRosterItemClickHandler}>Add Developer</button>
+      {/* <RosterList roster=roster></RosterList>   */}  {/* TODO make this line work in place of the following three lines */}
       <ul>
-        {stateDevelopers.map((developer) => { return <DeveloperItem name={developer}></DeveloperItem> })}
+        {roster.map((developer) => { return <RosterItem name={developer}></RosterItem> })}
       </ul>
-      <RosterCount developers={stateDevelopers}></RosterCount>
+      <RosterCount roster={roster}></RosterCount>
     </div>
   );
 }

@@ -14,7 +14,7 @@ const RosterCount = (props) => {
             setTitle(DEVELOPER);
     }
 
-    let count = props.developers.length;
+    let count = props.roster.length;
     return (
         <div>
             Number of {title}s in roster: {count}
