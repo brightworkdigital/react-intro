@@ -8,15 +8,15 @@ const DEVELOPER_ROSTER = "Developer Roster";
 
 function App() {
   const [roster, setRoster] = useState(getRoster());
-  const [pageTitle, setPageTitle]= useState(STUDENT_ROSTER);
+  const [pageTitle, setPageTitle] = useState(STUDENT_ROSTER);
 
-  useEffect( () => {
+  useEffect(() => {
     console.log("roster:", roster);
   },
-  [roster]
+    [roster]
   );
 
-   //TODO: log page title which is only written when title change
+  //TODO: log page title which is only written when title change
 
   const addRosterItemClickHandler = (event) => {
     // setStateDevelopers([...stateDevelopers, "dave"]);  // this can be blown up by a race condition
@@ -27,7 +27,7 @@ function App() {
   }
 
   const togglePageTitleClickHandler = (event) => {
-    if(pageTitle === STUDENT_ROSTER)
+    if (pageTitle === STUDENT_ROSTER)
       setPageTitle(DEVELOPER_ROSTER);
     else
       setPageTitle(STUDENT_ROSTER);
@@ -37,8 +37,8 @@ function App() {
     <div >
       <h1 >{pageTitle}</h1>
       <div><button onClick={togglePageTitleClickHandler}>Toggle Page Title</button></div>
+      {/* <RosterList roster=roster></RosterList>   */}  {/* TODO make this line work in place of the following FOUR lines */}
       <button onClick={addRosterItemClickHandler}>Add Developer</button>
-      {/* <RosterList roster=roster></RosterList>   */}  {/* TODO make this line work in place of the following three lines */}
       <ul>
         {roster.map((developer) => { return <RosterItem name={developer}></RosterItem> })}
       </ul>
