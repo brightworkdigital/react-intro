@@ -9,7 +9,7 @@ export function shuffleArray(originalArray) {
     return array;
 }
 
-export function getDevelopers() {
+export function getRoster() {
     // return shuffleArray(developers);
     return developers;
 }

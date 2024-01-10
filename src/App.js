@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import RosterItem from "./components/RosterItem";
 import RosterCount from "./components/RosterCount";
-import { getDevelopers as getRoster } from "./utils";
+import { getRoster as getRoster } from "./utils";
+import RosterList from "./components/RosterList";
 
 const STUDENT_ROSTER = "Student Roster";
 const DEVELOPER_ROSTER = "Developer Roster";
@@ -16,15 +16,12 @@ function App() {
     [roster]
   );
 
-  //TODO: log page title which is only written when title change
-
-  const addRosterItemClickHandler = (event) => {
-    // setStateDevelopers([...stateDevelopers, "dave"]);  // this can be blown up by a race condition
-    // the code below is the pattern to use when you're setting a state variable based on the previous value of that variable
-    setRoster((prevRoster) => { return [...prevRoster, "Dave"] });
-    console.log("clicked");
-    // console.log("roster:", roster);  //DOESN'T WORK
-  }
+  //DONE: log page title which is only written when title change
+  useEffect(() => {
+    console.log("pageTitle:", pageTitle);
+  },
+    [pageTitle]
+  );
 
   const togglePageTitleClickHandler = (event) => {
     if (pageTitle === STUDENT_ROSTER)
@@ -36,13 +33,13 @@ function App() {
   return (
     <div >
       <h1 >{pageTitle}</h1>
-      <div><button onClick={togglePageTitleClickHandler}>Toggle Page Title</button></div>
-      {/* <RosterList roster={roster} setRoster={setRoster}></RosterList>   */}  {/* TODO make this line work in place of the following FOUR lines */}
-      <button onClick={addRosterItemClickHandler}>Add Developer</button>
-      <ul>
-        {roster.map((developer) => { return <RosterItem name={developer}></RosterItem> })}
-      </ul>
+      <div>
+        <button onClick={togglePageTitleClickHandler}>Toggle Page Title</button>
+      </div>
+      <RosterList roster={roster} setRoster={setRoster}></RosterList>  {/* DONE make this line work in place of the following FOUR lines */}
+
       <RosterCount roster={roster}></RosterCount>
+      <div>{pageTitle}</div>
     </div>
   );
 }
