@@ -37,7 +37,7 @@ function App() {
     <div >
       <h1 >{pageTitle}</h1>
       <div><button onClick={togglePageTitleClickHandler}>Toggle Page Title</button></div>
-      {/* <RosterList roster=roster></RosterList>   */}  {/* TODO make this line work in place of the following FOUR lines */}
+      {/* <RosterList roster={roster} setRoster={setRoster}></RosterList>   */}  {/* TODO make this line work in place of the following FOUR lines */}
       <button onClick={addRosterItemClickHandler}>Add Developer</button>
       <ul>
         {roster.map((developer) => { return <RosterItem name={developer}></RosterItem> })}
