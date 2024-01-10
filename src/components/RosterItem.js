@@ -1,8 +1,10 @@
-
+ 
 
 const RosterItem = (props) => {
     return (
+        <div className="roster-item">
         <li>{props.name}</li>
+        </div>
     );
 }
 

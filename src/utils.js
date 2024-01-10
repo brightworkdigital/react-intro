@@ -13,4 +13,3 @@ export function getRoster() {
     // return shuffleArray(developers);
     return developers;
 }
-
