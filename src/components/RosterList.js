@@ -9,7 +9,6 @@ const RosterList = (props) => {
         // console.log("in event handler, roster:", roster);  //DOESN'T WORK
     }
 
-
     return (
         <>
             <button onClick={addRosterItemClickHandler}>Add Developer</button>

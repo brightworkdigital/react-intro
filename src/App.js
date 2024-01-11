@@ -2,12 +2,19 @@ import { useEffect, useState } from "react";
 import RosterCount from "./components/RosterCount";
 import { getRoster } from "./utils";
 import RosterList from "./components/RosterList";
+import { getNames } from "./api/rosterApi";
 
-const STUDENT_ROSTER = "Student Roster";
+const INITIAL_PAGE_TITLE = "Developer Roster";
 
 function App() {
-  const [roster, setRoster] = useState(getRoster());
-  const [pageTitle, setPageTitle] = useState(STUDENT_ROSTER);
+  const [roster, setRoster] = useState([]);
+  const [pageTitle, setPageTitle] = useState(INITIAL_PAGE_TITLE);
+
+  useEffect(() => {
+    let url = 'http://localhost:8080/names';
+    fetch(url).then(r => r.json()).then(response => setRoster(response));
+
+  }, []);
 
   useEffect(() => {
     console.log("from useEffect, roster:", roster);
