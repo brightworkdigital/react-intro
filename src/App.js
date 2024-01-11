@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import RosterCount from "./components/RosterCount";
 import { getRoster } from "./utils";
 import RosterList from "./components/RosterList";
-import { getNames } from "./api/rosterApi";
 
 const INITIAL_PAGE_TITLE = "Developer Roster";
 
@@ -11,9 +10,9 @@ function App() {
   const [pageTitle, setPageTitle] = useState(INITIAL_PAGE_TITLE);
 
   useEffect(() => {
-    let url = 'http://localhost:8080/names';
-    fetch(url).then(r => r.json()).then(response => setRoster(response));
-
+    // let url = 'http://localhost:8080/names';
+    // fetch(url).then(r => r.json()).then(response => setRoster(response));
+    setRoster(getRoster());
   }, []);
 
   useEffect(() => {
