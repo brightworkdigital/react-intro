@@ -31,15 +31,14 @@ function App() {
   return (
     <div >
       <h1 >{pageTitle}</h1>
-      <div>
+      {/* <div>
         <label>Enter new title:</label>
         <input type="text" onChange={(event) => { setPageTitle(event.target.value) }}></input>
-      </div>
+      </div> */}
       {/* TODO Create button and related logic to RosterList which supports adding a roster item */}
       <RosterList roster={roster} setRoster={setRoster}></RosterList>  {/* DONE make this line work in place of the following FOUR lines */}
 
       <RosterCount roster={roster}></RosterCount>
-      <div>{pageTitle}</div>
     </div>
   );
 }

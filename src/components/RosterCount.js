@@ -18,7 +18,7 @@ const RosterCount = (props) => {
     return (
         <div>
             Number of {title}s in roster: {count}
-            <div><button onClick={clickToggleTitleHandler}>Toggle Title</button></div>
+            {/* <div><button onClick={clickToggleTitleHandler}>Toggle Title</button></div> */}
         </div>
     );
 }

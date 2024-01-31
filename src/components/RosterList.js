@@ -11,7 +11,7 @@ const RosterList = (props) => {
 
     return (
         <>
-            <button onClick={addRosterItemClickHandler}>Add Developer</button>
+            {/* <button onClick={addRosterItemClickHandler}>Add Developer</button> */}
             <ul>
                 {props.roster.map((item) => { return <RosterItem name={item}></RosterItem> })}
             </ul>
